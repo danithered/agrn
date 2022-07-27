@@ -75,9 +75,9 @@ The input files are made up from 3 different sections, in an abritrary order. Th
     - The commands can be timed by stages (NEM CSAK AZ `ActionSwitch` COMMAND LEHET IDŐZÍTVE?). After the commands, an '@' sign invokes a timer. If applied, this timer executes the command at a specific stage. The program checks at the beginning of each iteration step which stage is expressed at most, based on their Pearson correlation coefficients ($r$). If the highest $r$ values exceeds a treshold value, the corresponding command will be executed. The structure of the timer is as follows: `command @ stage delay treshold`, where: 
         - `command`: The command (with arguments) to be timed.
         - `stage` (character / integer): The name (or number) of the stage in which the command is to be executed.
-        - `delay` (double - optional): The time interval that the system spent in a given stage after which the command is to be executed. Its default value is zero (immediate response).
-        - `threshold` (double - optional): Pearson correlation coefficient threshold value which has to be exceeded for a stage to be considered "dominant". Its default value is 0.95.
+        - `delay` (double - optional): The time that the system spent in a given stage after which the command is to be executed. Its default value is zero (immediate response).
+        - `threshold` (double - optional): Pearson correlation coefficient threshold value which has to be exceeded with respect to a stage to be considered "dominant". Its default value is 0.95.
 
 ## Rcpp wrapper
 
-For the results to be immediately plotted, we have provided an R wrapper. To use it recent version of [R](https://cran.r-project.org/) has to be installed with packages *Rcpp*, *ggplot2*, *BH* and *tidyr*. For usage see the src/plot.R file.
+For the results to be immediately plotted, we have provided an R wrapper. To use it, the recent version of [R](https://cran.r-project.org/) has to be installed with the *Rcpp*, *ggplot2*, *BH* and *tidyr* R packages. For more detailed information on the usage of the wrapper, see the src/plot.R file.
