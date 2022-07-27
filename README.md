@@ -69,14 +69,14 @@ The input files are made up from 3 different sections, in an abritrary order. Th
         - 0: The default value will be set on all of the decay rate values. (EZ EGY ARGUMENTUM, HOGY 0?)
         - 1: The same dacey rate will be applied. (EZ MEG EGY MÁSIK ARGUMENTUM? VAGY A 0 ÉS AZ 1 AZOK UGYANAZON ARGUMENTUM LEHETSÉGES ÉRTÉKEI?)
         - the overall number of genes (unique + non-unique + signals): it gives a value for each decay rate. (MIVAN? EZT NEM ÉRTEM, MEG KELL ADNI AZ ÖSSZES GÉN SZÁMÁT ÉS UTÁNA EGY MÁSIK SZÁMOT A DECAY-RE?) If a negative value is given, the default value will be applied.
-    - `ActionBoost`: It increases the expression levels of gened expressed in a state. Argoments:
+    - `ActionBoost`: Increases the expression levels of the genes expressed in a state. Arguments:
         - stage (character / integer): Which stage should be amplified.
-        - strength (double - optional): How much should each state be amplified. It defaults to maximal expression value ($E$). 
-    - The commands can be timed by stages. After the commands '@' sign invokes a timer. If applied, this timer executes the command at a specific stage during simulation (so not during the evaluation of the settings section). The program checks at the beginning of each iteration step which stage is expressed at most, based on their Pearson correlation coefficients ($r$). If the highest $r$ values exceeds a treshold value, the corresponding command will be executed. The structure of the timer is as follows: `command @ stage delay treshold`, where: 
-        - `command`: The command (with argoments) to be timed.
-        - `stage` (character / integer): The name (or number) of the stage which upon becoming the mostly expressed stage the command is executed.
-        - `delay` (double - optional): The length of the time interval in which the stage is expressed. It defaults to zero (so immediate response).
-        - `treshold` (double - optional): The treshold value which has to be exceeded for a stage to be considered "dominant". It defaults to 0.95.
+        - strength (double - optional): The extent of the amplification. Its default value is the maximal expression level ($E$). 
+    - The commands can be timed by stages (NEM CSAK AZ `ActionSwitch` COMMAND LEHET IDŐZÍTVE?). After the commands, an '@' sign invokes a timer. If applied, this timer executes the command at a specific stage. The program checks at the beginning of each iteration step which stage is expressed at most, based on their Pearson correlation coefficients ($r$). If the highest $r$ values exceeds a treshold value, the corresponding command will be executed. The structure of the timer is as follows: `command @ stage delay treshold`, where: 
+        - `command`: The command (with arguments) to be timed.
+        - `stage` (character / integer): The name (or number) of the stage in which the command is to be executed.
+        - `delay` (double - optional): The time interval that the system spent in a given stage after which the command is to be executed. Its default value is zero (immediate response).
+        - `threshold` (double - optional): Pearson correlation coefficient threshold value which has to be exceeded for a stage to be considered "dominant". Its default value is 0.95.
 
 ## Rcpp wrapper
 
