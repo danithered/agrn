@@ -65,10 +65,10 @@ The input files are made up from 3 different sections, in an abritrary order. Th
         - strength (double - optional): the level of expression of each expresed gene. Its default value is the maximal expression level ($E$).
     - `ActionChangeM`: Sets the use of alternative matrices. Be aware: if no alternative matrix is specified in the topology section, the program will crash! Arguments: 
         - number of matrix (integer - optional): The ID of the matrix (as declared in topology). Default value is 0.(QUESTION: HOW MANY CAN BE GIVEN (IF MORE THAN ONE) AND HOW?? FOR EXAMPLE IF I WANT TO USE 3 MATRICES: 0, 1, 2 IS CORRECT?)
-    - `ActionSetDecay`: Setting an alternate value for decay rate(s). According to the number of floating point argoments provided:
-        - 0: The default value will be set on all of the decay rate values.
-        - 1: The same dacey rate will be applied.
-        - the overall number of genes (unique + non-unique + signals): it gives a value fo each decay rate. Negative values will be denoted as default values.
+    - `ActionSetDecay`: Setting an alternative value for the gene's decay rate(s). According to the number of floating point, arguments provided:
+        - 0: The default value will be set on all of the decay rate values. (EZ EGY ARGUMENTUM, HOGY 0?)
+        - 1: The same dacey rate will be applied. (EZ MEG EGY MÁSIK ARGUMENTUM? VAGY A 0 ÉS AZ 1 AZOK UGYANAZON ARGUMENTUM LEHETSÉGES ÉRTÉKEI?)
+        - the overall number of genes (unique + non-unique + signals): it gives a value for each decay rate. (MIVAN? EZT NEM ÉRTEM, MEG KELL ADNI AZ ÖSSZES GÉN SZÁMÁT ÉS UTÁNA EGY MÁSIK SZÁMOT A DECAY-RE?) If a negative value is given, the default value will be applied.
     - `ActionBoost`: It increases the expression levels of gened expressed in a state. Argoments:
         - stage (character / integer): Which stage should be amplified.
         - strength (double - optional): How much should each state be amplified. It defaults to maximal expression value ($E$). 
