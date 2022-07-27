@@ -63,8 +63,8 @@ The input files are made up from 3 different sections, in an abritrary order. Th
     - `ActionSet`: Sets the expression vector ($p$) to a given state to define the initial stage of the differentiation process. Arguments:
         - stage (character / integer - optional): defines the initial stage. If it is left blank, the expression vector will be full of 0.0 values.
         - strength (double - optional): the level of expression of each expresed gene. Its default value is the maximal expression level ($E$).
-    - `ActionChangeM`: Sets the use of alternative matrices. Be aware: if no alternative matrix is specified in the topology section, the program will crash! Arguments: (QUESTION: HOW MANY CAN BE GIVEN (IF MORE THAN ONE) AND HOW?? FOR EXAMPLE IF I WANT TO USE 3 MATRICES: 0, 1, 2 IS CORRECT?)
-        - number of matrix (integer - optional): The ID of the matrix (as declared in topology). Default value is 0.
+    - `ActionChangeM`: Sets the use of alternative matrices. Be aware: if no alternative matrix is specified in the topology section, the program will crash! Arguments: 
+        - number of matrix (integer - optional): The ID of the matrix (as declared in topology). Default value is 0.(QUESTION: HOW MANY CAN BE GIVEN (IF MORE THAN ONE) AND HOW?? FOR EXAMPLE IF I WANT TO USE 3 MATRICES: 0, 1, 2 IS CORRECT?)
     - `ActionSetDecay`: Setting an alternate value for decay rate(s). According to the number of floating point argoments provided:
         - 0: The default value will be set on all of the decay rate values.
         - 1: The same dacey rate will be applied.
