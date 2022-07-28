@@ -76,7 +76,7 @@ The input files are made up from 3 different sections, in an abritrary order. Th
         - `command`: The command (with arguments) to be timed.
         - `stage` (character / integer): The name (or number) of the stage in which the command is to be executed.
         - `delay` (double - optional): The time that the system spends in the specified stage after which the command is to be executed. Its default value is zero (immediate response).
-        - `threshold` (double - optional): Pearson correlation coefficient threshold value which has to be exceeded with respect to the specified stage to be considered "dominant". Its default value is 0.95.
+        - `threshold` (double - optional): Pearson correlation coefficient threshold value which has to be exceeded with respect to the specified stage, in order to be viewed as being the "dominant" stage. Its default value is 0.95.
 
 ## Rcpp wrapper
 
