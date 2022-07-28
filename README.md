@@ -6,7 +6,7 @@ Péter Szabó<sup>1</sup>; Mátyás Paczkó<sup>1,2</sup>; Dániel Vörös<sup>1
 
 <sup>1</sup>Institute of Evolution, Centre for Ecological Research, Budapest, Hungary
 
-<sup>2</sup>Doctoral School of Biology, Institute of Biology, Eötvös Loránd University, Budapest, Hungary
+<sup>2</sup>Doctoral School of Biology, Institute of Biology, ELTE Eötvös Loránd University, Budapest, Hungary
 
 Note: The code available from this repository is provided without any warranty or liability.
 
@@ -56,13 +56,13 @@ The input files are made up from 3 different sections, in an abritrary order. Th
     - matrix (optional): By entering a value into this column, the user can split up the single transition matrix into multiple matrices so that the transitions in the given developmental process will be implemented by different matrices. The column value denotes the number of the matrix that implements the transition specified in its respective row. Numbering of the matices starts from 0. In case of leaving this column blank, all transition rules will be applied to the default matrix (0).
 - **settings**: Additional settings and control sequences. Each row denotes a "command" which will be applied on the model. The structure of the commands is as follows: the first word specifies the type of the command (case-unsensitive), the rest are the arguments of the command (arguments are whitespace separated). The following commands can be applied:
     - `ActionRun`: Run the simulation for the given time. Arguments:
-        - time (double): the time interval to simulate. In case of a negative value or missing argument, the minimal time interval will be applied.
+        - time (double): The time interval to simulate. In case of a negative value or missing argument, the minimal time interval will be applied.
     - `ActionSwitch`: Switches on a signal. Arguments:
-        - signal (character / integer): denotes which signal should be switched on
-        - strength (double - optional): the level of expression. Its defalt value is the maximal expression level ($E$).
+        - signal (character / integer): Denotes which signal should be switched on
+        - strength (double - optional): The level of expression. Its defalt value is the maximal expression level ($E$).
     - `ActionSet`: Sets the expression vector ($p$) to a given state to define the initial stage of the differentiation process. Arguments:
-        - stage (character / integer - optional): defines the initial stage. If it is left blank, the expression vector will be full of 0.0 values.
-        - strength (double - optional): the level of expression of each expresed gene. Its default value is the maximal expression level ($E$).
+        - stage (character / integer - optional): Defines the initial stage. If it is left blank, the expression vector will be full of 0.0 values.
+        - strength (double - optional): The level of expression of each expresed gene. Its default value is the maximal expression level ($E$).
     - `ActionChangeM`: Sets the use of alternative matrices. Be aware: if no alternative matrix is specified in the topology section, the program will crash! Arguments: 
         - number of matrix (integer - optional): The ID of the matrix (as declared in topology). Default value is 0.(QUESTION: HOW MANY CAN BE GIVEN (IF MORE THAN ONE) AND HOW?? FOR EXAMPLE IF I WANT TO USE 3 MATRICES: 0, 1, 2 IS CORRECT?)
     - `ActionSetDecay`: Setting an alternative value for the gene's decay rate(s). According to the number of floating point, arguments provided:
@@ -72,10 +72,10 @@ The input files are made up from 3 different sections, in an abritrary order. Th
     - `ActionBoost`: Increases the expression levels of the genes expressed in a state. Arguments:
         - stage (character / integer): Which stage should be amplified.
         - strength (double - optional): The extent of the amplification. Its default value is the maximal expression level ($E$). 
-    - The commands can be timed by stages (NEM CSAK AZ `ActionSwitch` COMMAND LEHET IDŐZÍTVE?). After the commands, an '@' sign invokes a timer. If applied, this timer executes the command at a specific stage. The program checks at the beginning of each iteration step which stage is expressed at most, based on their Pearson correlation coefficients ($r$). If the highest $r$ values exceeds a treshold value, the corresponding command will be executed. The structure of the timer is as follows: `command @ stage delay treshold`, where: 
+    - The commands can be timed by stages (NEM CSAK AZ `ActionSwitch` COMMAND LEHET IDŐZÍTVE?). After the commands, an '@' sign invokes a timer. If applied, this timer executes the command at a specific stage. The program checks at the beginning of each iteration step which stage is expressed at most, based on their Pearson correlation coefficients ($r$). If the highest $r$ value exceeds a treshold value, the corresponding command will be executed. The structure of the timer is as follows: `command @ stage delay treshold`, where: 
         - `command`: The command (with arguments) to be timed.
         - `stage` (character / integer): The name (or number) of the stage in which the command is to be executed.
-        - `delay` (double - optional): The time that the system spent in a given stage after which the command is to be executed. Its default value is zero (immediate response).
+        - `delay` (double - optional): The time that the system spends in a given stage after which the command is to be executed. Its default value is zero (immediate response).
         - `threshold` (double - optional): Pearson correlation coefficient threshold value which has to be exceeded with respect to a stage to be considered "dominant". Its default value is 0.95.
 
 ## Rcpp wrapper
