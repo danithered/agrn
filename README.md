@@ -75,7 +75,7 @@ The input files are made up from 3 different sections, in an abritrary order. Th
     - The commands can be timed by stages (NEM CSAK AZ `ActionSwitch` COMMAND LEHET IDŐZÍTVE?). After the commands, an '@' sign invokes a timer. If applied, this timer executes the command at a specific stage. The program checks at the beginning of each iteration step which stage is expressed at most, based on their Pearson correlation coefficients ($r$). If the highest $r$ value exceeds a treshold value, the corresponding command will be executed. The structure of the timer is as follows: `command @ stage delay treshold`, where: 
         - `command`: The command (with arguments) to be timed.
         - `stage` (character / integer): The name (or number) of the stage in which the command is to be executed.
-        - `delay` (double - optional): The time that the system spends in a given stage after which the command is to be executed. Its default value is zero (immediate response).
+        - `delay` (double - optional): The time that the system spends in the specified stage after which the command is to be executed. Its default value is zero (immediate response).
         - `threshold` (double - optional): Pearson correlation coefficient threshold value which has to be exceeded with respect to a stage to be considered "dominant". Its default value is 0.95.
 
 ## Rcpp wrapper
