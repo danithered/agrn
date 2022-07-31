@@ -58,7 +58,7 @@ The input files are made up from 3 different sections, in an abritrary order. Th
     - `ActionRun`: Run the simulation for the given time. Arguments:
         - time (double): The time interval to simulate. In case of a negative value or missing argument, the minimal time interval will be applied.
     - `ActionSwitch`: Switches on a signal. Arguments:
-        - signal (character / integer): Denotes which signal should be switched on
+        - signal (character / integer): Denotes which signal should be switched on.
         - strength (double - optional): The level of expression. Its defalt value is the maximal expression level ($E$).
     - `ActionSet`: Sets the expression vector ($p$) to a given state to define the initial stage of the differentiation process. Arguments:
         - stage (character / integer - optional): Defines the initial stage. If it is left blank, the expression vector will be full of 0.0 values.
@@ -74,8 +74,8 @@ The input files are made up from 3 different sections, in an abritrary order. Th
         - strength (double - optional): The extent of the amplification. Its default value is the maximal expression level ($E$). 
     - The commands can be timed by stages (NEM CSAK AZ `ActionSwitch` COMMAND LEHET IDŐZÍTVE?). After the commands, an '@' sign invokes a timer. If applied, this timer executes the command at a specific stage. The program checks at the beginning of each iteration step which stage is expressed at most, based on their Pearson correlation coefficients ($r$). If the highest $r$ value exceeds a treshold value, the corresponding command will be executed. The structure of the timer is as follows: `command @ stage delay treshold`, where: 
         - `command`: The command (with arguments) to be timed.
-        - `stage` (character / integer): The name (or number) of the stage in which the command is to be executed.
-        - `delay` (double - optional): The time that the system spends in the specified stage after which the command is to be executed. Its default value is zero (immediate response).
+        - `stage` (character / integer): The name (or number) of the stage in which the command is executed.
+        - `delay` (double - optional): The time that the system spends in the specified stage after which the command is executed. Its default value is zero (immediate response).
         - `threshold` (double - optional): Pearson correlation coefficient threshold value which has to be exceeded with respect to the specified stage, in order to be viewed as being the "dominant" stage. Its default value is 0.95.
 
 ## Rcpp wrapper
