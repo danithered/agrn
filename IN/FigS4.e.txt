@@ -39,6 +39,6 @@ VPCdE_lateL4	VPCdE_adult	0	0
 VPCdF_lateL4	VPCdF_adult	0	0
 
 % settings
-ActionSet VPC_earlyL3
-ActionSwitch 1 @ VPCd_midL3 15
-ActionRun 150
+Set VPC_earlyL3
+Trigger 1 @ VPCd_midL3 15
+Runtime 150

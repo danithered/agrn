@@ -9,11 +9,11 @@ namespace dv_expr{
 	
 	action_types action2enum(std::string input){
 		boost::algorithm::to_lower(input); 
-		if(input == "actionchangem") return(eActionChangeM);
-		if(input == "actionswitch") return(eActionSwitch);
-		if(input == "actionset") return(eActionSet);
-		if(input == "actionrun") return(eActionRun);
-		if(input == "actionsetdecay") return(eActionSetDecay);
+		if(input == "changem") return(eActionChangeM);
+		if(input == "trigger") return(eActionSwitch);
+		if(input == "set") return(eActionSet);
+		if(input == "runtime") return(eActionRun);
+		if(input == "setdecay") return(eActionSetDecay);
 		return(enone);
 	}
 	
@@ -52,48 +52,6 @@ namespace dv_expr{
 		}
 	}
 
-	/*void RegFrom::add(const unsigned int to, const int trigger ){
-		if(from == to){ //homoassoc
-			//warnings
-			if(trigger >= 0) std::cerr 
-				<< "WARNING: RegUnit: trigger (" 
-				<< trigger
-				<< ") added to homoassotiation of pattern "
-				<< from
-				<< ". It will be ignored!" << std::endl;
-			if(no_homo) std::cerr
-				<< "WARNING: RegUnit: there is more than one ("
-				<< (no_homo + 1)
-				<< ") homoassotiation given to pattern "
-				<< from
-				<< " , the model`s behaviour will be unpredictable!" << std::endl;
-			
-			//add data
-			//tos.emplace_back(to, -2);
-			no_homo++;
-		} else { //heteroasszoc
-			tos.emplace_back(to, trigger);
-			if(trigger >= 0){ //... and there is a trigger
-				no_conditional++;
-				//issue warnings
-				if(no_conditional > 1 && no_default) std::cerr
-					<< "WARNING: RegUnit: additional conditinal transition added to node "
-					<< from 
-					<< " containing a fork already. To prevent unpredictable behaviour default branch will be ragarded as simple heteroassotiation and other branches as simple conditional transitions!" << std::endl;
-			} else { //... and there is no trigger
-				//issue warnings
-				if(no_default) std::cerr
-					<< "WARNING: RegUnit: more than one (" 
-					<< (no_default + 1) 
-					<< ") heteroassotiations given to pattern " 
-					<< from 
-					<< ". The model`s behaviour may become unpredictable!" << std::endl; 
-
-				//do stuff
-				no_default++; //and it is a default transition
-			}
-		} //heteroasszoc
-	}*/
 
 	void RegFrom::add(const unsigned int to, const unsigned int type, const int trigger ){
 		if(from == to){ //homoassoc

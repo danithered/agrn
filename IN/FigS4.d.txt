@@ -39,5 +39,5 @@ VPCdE_lateL4	VPCdE_adult	0	0
 VPCdF_lateL4	VPCdF_adult	0	0
 
 % settings
-ActionSet VPC_earlyL3
-ActionRun 150
+Set VPC_earlyL3
+Runtime 150

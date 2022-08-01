@@ -54,6 +54,6 @@ P5_VPCd_C_lateL4	P5_VPCd_C_adult	0	0
 P5_VPCd_D_lateL4	P5_VPCd_D_adult	0	0
 
 % settings
-ActionSet P5_VPC_earlyL3
-ActionSwitch 1
-ActionRun 150
+Set P5_VPC_earlyL3
+Trigger 1
+Runtime 150
