@@ -67,16 +67,14 @@ The input files are made up from 3 different sections, in an abritrary order. Th
         - number of matrix (integer - optional): The ID of the matrix (as declared in topology). Default value is 0.
     - `SetDecay`: Setting values for gene's decay rate(s). According to the number of arguments:
         - no argument: The default value will be set on all of the decay rate values. 
-        - single argument: The same dacey rate will be applied. 
-        - argument vector (its length equals to the number of unique + non-unique + signal elements): it gives a value for each decay rate. If a negative value is given, the default value will be applied.
-    - `Boost`: Increases the expression levels of the genes expressed in a state. Arguments:
-        - stage (character / integer): Which stage should be amplified.
-        - strength (double - optional): The extent of the amplification. Its default value is the maximal expression level ($E$). 
-    - The commands can be timed by stages (NEM CSAK AZ `ActionSwitch` COMMAND LEHET IDŐZÍTVE?). After the commands, an '@' sign invokes a timer. If applied, this timer executes the command at a specific stage. The program checks at the beginning of each iteration step which stage is expressed at most, based on their Pearson correlation coefficients ($r$). If the highest $r$ value exceeds a treshold value, the corresponding command will be executed. The structure of the timer is as follows: `command @ stage delay treshold`, where: 
-        - `command`: The command (with arguments) to be timed.
+        - single argument: The same decay rate will be applied. 
+        - argument vector (number of elements is the sum of the unique, non-unique and signal elements): Different decay rates will be applied.
+    - Commands can be executed, if the system reaches a given stage, i.e., the Pearson correlation coefficient of the specified stage exceeds a threshold value for a predefined period of time. The structure of the timer is the following: `command [ARGS] @ stage [expression length] [treshold]`, where: 
+        - `command`: The command to be timed. 
+        - `ARGS`: The arguments of the command.
         - `stage` (character / integer): The name (or number) of the stage in which the command is executed.
-        - `delay` (double - optional): The time that the system spends in the specified stage after which the command is executed. Its default value is zero (immediate response).
-        - `threshold` (double - optional): Pearson correlation coefficient threshold value which has to be exceeded with respect to the specified stage, in order to be viewed as being the "dominant" stage. Its default value is 0.95.
+        - `expression length` (double - optional): The minimum length of expression of the specified stage to evoke the command. The default value is zero (immediate response).
+        - `threshold` (double - optional): The critical value of the Pearson correlation coefficient. The default value is 0.95.
 
 ## Rcpp wrapper
 
