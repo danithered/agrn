@@ -16,9 +16,9 @@ Briefly, this program implements and visualizes a differentiation or development
 
 ## Prerequisites
 
-1. To build the program Linux or any compatible system needed. (Compatbility for Windows users will be provided soon.)
-2. Please install [boost](https://www.boost.org/) libraries
-3. Please install additional libraries:  
+1. To build the program Linux or any compatible system needed. (Compatibility for Windows users will be provided soon.)
+2. Install [boost](https://www.boost.org/) libraries
+3. Install additional libraries:  
 `sudo apt update`  
 `sudo apt upgrade`  
 `sudo apt intall git build-essentials`
@@ -26,19 +26,19 @@ Briefly, this program implements and visualizes a differentiation or development
 ## Installation
 
 1. Move to a directory of your choice (in console): `cd /home/user/my/directory`
-2. Clone the repository: `git clone mofdngonfogoa`
-3. Move into cloned library: `cd lgadgagjgja`
+2. Clone the repository: `git clone [https://github.com/danithered/agrn](https://github.com/danithered/agrn)`
+3. Move into cloned library: `cd agrn`
 4. Compile program: `make`
 
 ## Basic usage
 
-For simplicity, we have provided a single, code-free interface to use our tool and reproduce our results. The program accepts a single input file and prints the results to a standard output. For example, to reproduce the results shown in Fig1:
+We have provided a simple description language for a concise representation of the regulatory systems described in the article. The program accepts a single input file and prints the results to a standard output. For example, to reproduce the results shown in Fig1:
 
 `./simulation IN/Fig1.b1.txt`
 
-To redirect output to a file please do:
+To redirect output to a file:
 
-`./simulation IN/Fig1.b1.txt >> myfile.txt`
+`./simulation IN/Fig1.b1.txt > myfile.txt`
 
 ## Structure of the input files
 
