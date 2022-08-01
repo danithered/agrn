@@ -36,11 +36,11 @@ MEP	BFU-E	F+6
 BFU-E	CFU-E	0
 
 % settings
-ActionSet Mesoderm
-ActionSwitch 1
-ActionSwitch 2 @ Definitive_hemangioblast 15
-ActionSwitch 3 @ LTR-HSC 15
-ActionSwitch 4 @ STR-HSC 15
-ActionSwitch 5 @ CMP 15
-ActionSwitch 6 @ MEP 15
-ActionRun 150
+Set Mesoderm
+Trigger 1
+Trigger 2 @ Definitive_hemangioblast 15
+Trigger 3 @ LTR-HSC 15
+Trigger 4 @ STR-HSC 15
+Trigger 5 @ CMP 15
+Trigger 6 @ MEP 15
+Runtime 150
