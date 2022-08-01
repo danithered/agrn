@@ -55,21 +55,21 @@ The input files are made up from 3 different sections, in an abritrary order. Th
     - trigger: Contains the type of the transition and the number, or the name of the trigger (if needed). *Linear transitions* are defined by an empy cell or a cell with the content of '0' in this column. *Conditional transitions* should be indicated in the following form: 'C1' or 'Csignalname', where 'C' specifies the transition type and '1'/'signalname' denotes that it will proceed to its target, if signal number 1 (or signal named signalname) is present (we recommend the use of the numbers). *Fork transitions* have to be defined by two rows with the same initial stage name in the `from` column, but different target stage names in the `to` column with one row describing the default and the other one the triggered branch. In case of the default branch, the content of the `trigger` column will follow the pattern 'F-1' (or 'F-signalname') with the minus sign referring to the absence of the trigger and '1'/'signalname' indicating which signal is absent (in case of the default branch, signal indication can be omitted). Triggered branches follow the pattern of 'F+1' (or 'F+signalname'). Please note that trigger elements will be added to matrix M based on this section.
     - matrix (optional): By entering a value into this column, the user can split up the single transition matrix into multiple matrices so that the transitions in the given developmental process will be implemented by different matrices. The column value denotes the number of the matrix that implements the transition specified in its respective row. Numbering of the matices starts from 0. In case of leaving this column blank, all transition rules will be applied to the default matrix (0).
 - **settings**: Additional settings and control sequences. Each row denotes a "command" which will be applied on the model. The structure of the commands is as follows: the first word specifies the type of the command (case-unsensitive), the rest are the arguments of the command (arguments are whitespace separated). The following commands can be applied:
-    - `ActionRun`: Run the simulation for the given time. Arguments:
+    - `Runtime`: Run the simulation for the given time. Arguments:
         - time (double): The time interval to simulate. In case of a negative value or missing argument, the minimal time interval will be applied.
-    - `ActionSwitch`: Switches on a signal. Arguments:
+    - `Trigger`: Switches on a signal. Arguments:
         - signal (character / integer): Denotes which signal should be switched on.
         - strength (double - optional): The level of expression. Its defalt value is the maximal expression level ($E$).
-    - `ActionSet`: Sets the expression vector ($p$) to a given state to define the initial stage of the differentiation process. Arguments:
+    - `Set`: Sets the expression vector ($p$) to a given state to define the initial stage of the differentiation process. Arguments:
         - stage (character / integer - optional): Defines the initial stage. If it is left blank, the expression vector will be full of 0.0 values.
         - strength (double - optional): The level of expression of each expresed gene. Its default value is the maximal expression level ($E$).
-    - `ActionChangeM`: Sets the use of alternative matrices. Be aware: if no alternative matrix is specified in the topology section, the program will crash! Arguments: 
-        - number of matrix (integer - optional): The ID of the matrix (as declared in topology). Default value is 0.(QUESTION: HOW MANY CAN BE GIVEN (IF MORE THAN ONE) AND HOW?? FOR EXAMPLE IF I WANT TO USE 3 MATRICES: 0, 1, 2 IS CORRECT?)
-    - `ActionSetDecay`: Setting an alternative value for the gene's decay rate(s). According to the number of floating point, arguments provided:
-        - 0: The default value will be set on all of the decay rate values. (EZ EGY ARGUMENTUM, HOGY 0?)
-        - 1: The same dacey rate will be applied. (EZ MEG EGY MÁSIK ARGUMENTUM? VAGY A 0 ÉS AZ 1 AZOK UGYANAZON ARGUMENTUM LEHETSÉGES ÉRTÉKEI?)
-        - the overall number of genes (unique + non-unique + signals): it gives a value for each decay rate. (MIVAN? EZT NEM ÉRTEM, MEG KELL ADNI AZ ÖSSZES GÉN SZÁMÁT ÉS UTÁNA EGY MÁSIK SZÁMOT A DECAY-RE?) If a negative value is given, the default value will be applied.
-    - `ActionBoost`: Increases the expression levels of the genes expressed in a state. Arguments:
+    - `ChangeM`: Sets the use of alternative matrices. Be aware: if no alternative matrix is specified in the topology section, the program will crash! Arguments: 
+        - number of matrix (integer - optional): The ID of the matrix (as declared in topology). Default value is 0.
+    - `SetDecay`: Setting values for gene's decay rate(s). According to the number of arguments:
+        - no argument: The default value will be set on all of the decay rate values. 
+        - single argument: The same dacey rate will be applied. 
+        - argument vector (its length equals to the number of unique + non-unique + signal elements): it gives a value for each decay rate. If a negative value is given, the default value will be applied.
+    - `Boost`: Increases the expression levels of the genes expressed in a state. Arguments:
         - stage (character / integer): Which stage should be amplified.
         - strength (double - optional): The extent of the amplification. Its default value is the maximal expression level ($E$). 
     - The commands can be timed by stages (NEM CSAK AZ `ActionSwitch` COMMAND LEHET IDŐZÍTVE?). After the commands, an '@' sign invokes a timer. If applied, this timer executes the command at a specific stage. The program checks at the beginning of each iteration step which stage is expressed at most, based on their Pearson correlation coefficients ($r$). If the highest $r$ value exceeds a treshold value, the corresponding command will be executed. The structure of the timer is as follows: `command @ stage delay treshold`, where: 
