@@ -26,7 +26,7 @@ Briefly, this program implements and visualizes a differentiation or development
 ## Installation
 
 1. Move to a directory of your choice (in console): `cd /home/user/my/directory`
-2. Clone the repository: `git clone [https://github.com/danithered/agrn](https://github.com/danithered/agrn)`
+2. Clone the repository: `git clone https://github.com/danithered/agrn`
 3. Move into cloned library: `cd agrn`
 4. Compile program: `make`
 
