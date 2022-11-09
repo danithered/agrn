@@ -14,6 +14,7 @@ namespace dv_expr{
 		if(input == "set") return(eActionSet);
 		if(input == "runtime") return(eActionRun);
 		if(input == "setdecay") return(eActionSetDecay);
+		if(input == "output") return(eActionOutput);
 		return(enone);
 	}
 	
@@ -1043,6 +1044,10 @@ namespace dv_expr{
 					if(no_args) todo = (Action*) new ActionRun( std::stof(argoments[0]) );
 					else todo = (Action*) new ActionRun();
 					break;
+				case eActionOutput:
+					if(no_args) todo = (Action*) new ActionOutput( argoments[0] );
+					else todo = (Action*) new ActionOutput();
+					break;
 			}
 
 			if(todo != nullptr){ //if there is a valid action
@@ -2001,6 +2006,20 @@ namespace dv_expr{
 		}
 //		std::cout << std::endl;
 	}
+
+	const char ExpressionModell::output_types(const std::string &input) const{
+		std::string input_lower = input;
+		boost::algorithm::to_lower(input_lower); 
+		if(input_lower == "pearson") return('P');
+		if(input_lower == "state") return('S');
+		if(input_lower == "rpearson") return('R');
+		return(input[0]);
+	}
+
+	bool ExpressionModell::changeOutput(const std::string &type){
+		return changeOutput(output_types(type));
+	}
+
 	bool ExpressionModell::changeOutput(const char type){
 		switch(type){
 			case 'S':

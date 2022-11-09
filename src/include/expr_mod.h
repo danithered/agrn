@@ -117,7 +117,7 @@ namespace dv_expr {
 
 	class ExpressionModell;
 
-	enum action_types {enone, eActionChangeM, eActionSwitch, eActionSet, eActionRun, eActionSetDecay};
+	enum action_types {enone, eActionChangeM, eActionSwitch, eActionSet, eActionRun, eActionSetDecay, eActionOutput};
 	action_types action2enum(std::string input);
 
 	class Action{
@@ -505,6 +505,8 @@ namespace dv_expr {
 
 			///outputting
 			bool changeOutput(const char type);
+			bool changeOutput(const std::string &type);
+			const char output_types(const std::string &input) const;
 
 			bool load(const std::string &filename);
 			bool load(char *filename);
@@ -804,6 +806,23 @@ namespace dv_expr {
 			}
 		private:
 			double length;   //the assigned value
+	};
+
+	class ActionOutput : public Action{
+		public: 
+			ActionOutput(): type("pearson") {};
+			ActionOutput(const std::string & _type): type(_type) {};
+			~ActionOutput(){};
+
+			virtual Action* Clone(){return new ActionOutput(*this); }
+			void apply(ExpressionModell* obj){
+				obj->changeOutput(type);	
+			}
+			void print(){
+				std::cout << "ActionOutput with type" << type << std::endl;
+			}
+		private:
+			const std::string type;  //which value will be altered in case of inner_triggering
 	};
 
 	class ActionSet : public Action{
