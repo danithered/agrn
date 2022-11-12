@@ -69,6 +69,7 @@ The input files are made up from 3 different sections, in an abritrary order. Th
         - no argument: The default value will be set on all of the decay rate values. 
         - single argument: The same decay rate will be applied. 
         - argument vector (number of elements is the sum of the unique, non-unique and signal elements): Different decay rates will be applied.
+    - `Output`: Set the type of output. Default value: `Pearson` - it prints Pearson correlation coefficients (see: Figures in article). Alternative option: `state` - it prints the expression level of genes.
     - Commands can be executed, if the system reaches a given stage, i.e., the Pearson correlation coefficient of the specified stage exceeds a threshold value for a predefined period of time. The structure of the timer is the following: `command [ARGS] @ stage [expression length] [treshold]`, where: 
         - `command`: The command to be timed. 
         - `ARGS`: The arguments of the command.
