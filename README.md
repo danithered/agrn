@@ -34,11 +34,11 @@ Briefly, this program implements and visualizes a differentiation or development
 
 We have provided a simple description language for a concise representation of the regulatory systems described in the article. The program accepts a single input file and prints the results to a standard output. For example, to reproduce the results shown in Fig1:
 
-`./simulation IN/Fig1.b1.txt`
+`./agrn IN/Fig1.b1.txt`
 
 To redirect output to a file:
 
-`./simulation IN/Fig1.b1.txt > myfile.txt`
+`./agrn IN/Fig1.b1.txt > myfile.txt`
 
 ## Structure of the input files
 
@@ -80,3 +80,9 @@ The input files are made up from 3 different sections, in an abritrary order. Th
 ## Rcpp wrapper
 
 For the results to be immediately plotted, we have provided an R wrapper. To use it, the recent version of [R](https://cran.r-project.org/) has to be installed with the *Rcpp*, *ggplot2*, *BH* and *tidyr* R packages. For more detailed information on the usage of the wrapper, see the src/plot.R file.
+
+## Supplementary files
+
+- input files for the generation of all the figures in the paper can be found in the `IN/` folder
+- generated regulatory matrices in ".tsv" format can be found in the `matrices/` folder
+

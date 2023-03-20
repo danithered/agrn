@@ -1,4 +1,4 @@
-PROGNAME=simulation
+PROGNAME=agrn
 
 IDIR =./src/include
 ODIR=./src/obj
