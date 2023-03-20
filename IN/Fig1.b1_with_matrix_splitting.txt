@@ -1,0 +1,45 @@
+Human hematopoesis
+
+from mesoderm cell to common lymphoid progenitor
+regulatory matrix splitted into two for illustrative purposes
+
+% data
+gene	Mesoderm	Primitive_hemangioblast	Definitive_hemangioblast	Definitive_EC	LTR-HSC	STR-HSC	CLP	CMP	GMP	MEP	BFU-meg	BFU-E	CFU-E
+GATA-1	0	1	0	0	0	1	0	1	0	1	1	1	1
+GATA-2	0	0	1	1	1	1	0	1	0	1	0	1	0
+PU.1	0	0	0	0	0	1	1	1	1	1	0	0	0
+SCL	0	1	1	1	1	1	0	1	1	1	1	1	1
+Bra	1	1	1	0	0	0	0	0	0	0	0	0	0
+Flk-1	0	1	0	1	0	0	0	0	0	0	0	0	0
+BMP4	1	1	1	0	0	0	0	0	0	0	0	0	0
+Runx1	0	0	1	0	1	1	1	1	1	1	1	1	1
+VE-cadherin	0	0	0	1	0	0	0	0	0	0	0	0	0
+c-myb	0	0	0	0	1	1	1	1	1	1	0	1	1
+NF+E2	0	0	0	0	0	0	0	1	0	1	1	1	1
+c-kit	0	0	0	0	0	1	0	1	0	1	0	1	1
+EKLF	0	0	0	0	0	0	0	1	0	1	0	1	1
+EpoR	0	0	0	0	0	0	0	0	0	1	0	0	0
+Fli-1	0	0	0	0	0	0	0	0	1	0	1	1	1
+
+% topology
+from	to	trigger	matrix
+Mesoderm	Definitive_hemangioblast	F+1	0
+Mesoderm	Primitive_hemangioblast	F-	0
+Definitive_hemangioblast	LTR-HSC	F+2	0
+Definitive_hemangioblast	Definitive_EC	F-	0
+LTR-HSC	STR-HSC	C3	0
+STR-HSC	CLP	F-	0
+STR-HSC	CMP	F+4	0
+CMP	GMP	F-	1
+CMP	MEP	F+5	1
+MEP	BFU-meg	F-	1
+MEP	BFU-E	F+6	1
+BFU-E	CFU-E	0	1
+
+% settings
+Set Mesoderm
+ChangeM 1 @ CMP 15
+Trigger 1
+Trigger 2 @ Definitive_hemangioblast 15
+Trigger 3 @ LTR-HSC 15
+Runtime 150
