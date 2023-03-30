@@ -1680,13 +1680,13 @@ namespace dv_expr{
 		for( auto f = factor_names.begin(); f != factor_names.end(); f++ ){
 			std::cout << "\t" << *f;
 		}
-		std::cout << "\t|";
+		//std::cout << "\t|";
 
 		//print gene names
 		for( auto gene = gene_names.begin(); gene != gene_names.end(); gene++ ){
 			std::cout << "\t" << *gene;
 		}
-		std::cout << "\t|";
+		//std::cout << "\t|";
 
 		//print trigger names
 		for( auto tr = trigger_names.begin(); tr != trigger_names.end(); tr++ ){
@@ -1698,9 +1698,9 @@ namespace dv_expr{
 	void ExpressionModell::printState() {
 		std::cout << time;
 		for(unsigned int expr = 0; expr < size ; expr++){
-			if(expr == no_target_factors || expr == (no_target_factors + no_genes) ) {
-				std::cout << "\t|";
-			}
+			//if(expr == no_target_factors || expr == (no_target_factors + no_genes) ) {
+			//	std::cout << "\t|";
+			//}
 			std::cout << "\t" << p[expr];
 		}
 		std::cout << std::endl;

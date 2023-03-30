@@ -22,23 +22,24 @@ EpoR	0	0	0	0	0	0	0	0	0	1	0	0	0
 Fli-1	0	0	0	0	0	0	0	0	1	0	1	1	1
 
 % topology
-from	to	trigger
+from	to	trigger	matrix
 Mesoderm	Definitive_hemangioblast	F+1	0
 Mesoderm	Primitive_hemangioblast	F-	0
 Definitive_hemangioblast	LTR-HSC	F+2	0
 Definitive_hemangioblast	Definitive_EC	F-	0
 LTR-HSC	STR-HSC	C3	0
-STR-HSC	CLP	F-	0
-STR-HSC	CMP	F+4	0
-CMP	GMP	F-	1
-CMP	MEP	F+5	1
-MEP	BFU-meg	F-	1
-MEP	BFU-E	F+6	1
-BFU-E	CFU-E	0	1
+STR-HSC	CLP	F-	1
+STR-HSC	CMP	F+4	1
+CMP	GMP	F-	2
+CMP	MEP	F+5	2
+MEP	BFU-meg	F-	2
+MEP	BFU-E	F+6	2
+BFU-E	CFU-E	0	2
 
 % settings
 Set Mesoderm
-ChangeM 1 @ CMP 15
+ChangeM 1 @ STR-HSC 15
+ChangeM 2 @ CMP 15
 Trigger 1
 Trigger 2 @ Definitive_hemangioblast 15
 Trigger 3 @ LTR-HSC 15
