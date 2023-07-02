@@ -1,12 +1,21 @@
 Repository for the software that implements the AGRN model described in
 
-# Neural network formalism as a guide to the understanding and synthesis of large-scale genetic regulatory networks
+# Neural network model of cell differentiation on Waddingtonian landscapes
 
-Péter Szabó<sup>1</sup>; Mátyás Paczkó<sup>1,2</sup>; Dániel Vörös<sup>1,2</sup>; Eörs Szathmáry<sup>1</sup>; András Szilágyi<sup>1</sup>
+Mátyás Paczkó<sup>1,2</sup>; Dániel Vörös<sup>1,2</sup>; Péter Szabó<sup>1</sup>; Gáspár Jékely<sup>3</sup>; Eörs Szathmáry<sup>1,4,5</sup>; András Szilágyi<sup>1</sup>
 
-<sup>1</sup>Institute of Evolution, Centre for Ecological Research, Budapest, Hungary
+<sup>1</sup>Institute of Evolution, Centre for Ecological Research, 1121 Budapest, Hungary
 
-<sup>2</sup>Doctoral School of Biology, Institute of Biology, ELTE Eötvös Loránd University, Budapest, Hungary
+<sup>2</sup>Doctoral School of Biology, Institute of Biology, ELTE Eötvös Loránd University, 1117
+Budapest, Hungary
+
+<sup>3</sup>Living Systems Institute, University of Exeter, EX4 4QD Exeter, United Kingdom
+
+<sup>4</sup>Center for the Conceptual Foundations of Science, Parmenides Foundation, 82343 Pöcking,
+Germany
+
+<sup>5</sup>Department of Plant Systematics, Ecology and Theoretical Biology, Eötvös Loránd
+University, 1117 Budapest, Hungary
 
 Note: The code available from this repository is provided without any warranty or liability.
 
