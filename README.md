@@ -2,7 +2,7 @@ Repository for the software that implements the AGRN model described in
 
 # Neural network model of cell differentiation on Waddingtonian landscapes
 
-Mátyás Paczkó<sup>1,2</sup>; Dániel Vörös<sup>1,2</sup>; Péter Szabó<sup>1</sup>; Gáspár Jékely<sup>3</sup>; Eörs Szathmáry<sup>1,4,5</sup>; András Szilágyi<sup>1</sup>
+Mátyás Paczkó<sup>1,2,*</sup>, Dániel Vörös<sup>1,2,*</sup>, Péter Szabó<sup>1</sup>, Gáspár Jékely<sup>3</sup>, Eörs Szathmáry<sup>1,4,5</sup>, András Szilágyi<sup>1</sup>
 
 <sup>1</sup>Institute of Evolution, Centre for Ecological Research, 1121 Budapest, Hungary
 
@@ -16,6 +16,8 @@ Germany
 
 <sup>5</sup>Department of Plant Systematics, Ecology and Theoretical Biology, Eötvös Loránd
 University, 1117 Budapest, Hungary
+
+<sup>*</sup>These authors contributed equally to this work
 
 Note: The code available from this repository is provided without any warranty or liability.
 
