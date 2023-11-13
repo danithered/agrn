@@ -117,7 +117,7 @@ namespace dv_expr {
 
 	class ExpressionModell;
 
-	enum action_types {enone, eActionChangeM, eActionSwitch, eActionSet, eActionRun, eActionSetDecay, eActionOutput};
+	enum action_types {enone, eActionChangeM, eActionSwitch, eActionSet, eActionRun, eActionSetDecay, eActionOutput, eActionPar};
 	action_types action2enum(std::string input);
 
 	class Action{
@@ -447,6 +447,8 @@ namespace dv_expr {
 			void run(double number_of_timesteps);
 			void reset();
 
+			bool setPar(const std::string &id, double value); // model parameter setter for parser 
+										 
 			bool setState(const std::vector<double> &state);
 			void setState(const double value); //inic state to the same value overall
 			bool setState(double mu, double sd); //inic state to random values from a normal distribution
@@ -843,6 +845,26 @@ namespace dv_expr {
 			}
 			void print(){
 				std::cout << "ActionSet with target" << target << " and value " << value << std::endl;
+			}
+		private:
+			const std::string target;  //which value will be altered in case of inner_triggering
+			const double value;   //the assigned value
+	};
+
+	class ActionPar : public Action{
+		public: 
+			ActionPar(const std::string & _target, const double _value): target(_target), value(_value) {};
+			~ActionPar(){
+//				std::cout << "ActionPar destroyed" << std::endl;
+			};
+
+			virtual Action* Clone(){return new ActionPar(*this); }
+			void apply(ExpressionModell* obj){
+//				std::cout << "Action: switch target " << target << " to value " << value << std::endl;
+				obj->setPar(target, value);	
+			}
+			void print(){
+				std::cout << "ActionPar for parameter " << target << " and value " << value << std::endl;
 			}
 		private:
 			const std::string target;  //which value will be altered in case of inner_triggering

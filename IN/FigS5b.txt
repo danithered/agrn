@@ -1,5 +1,10 @@
 Hematopoiesis May
 
+Hematopiesis data from article:
+May, Gillian, Shamit Soneji, Alex J. Tipping, Jose Teles, Simon J. McGowan, Mengchu Wu, Yanping Guo, et al. “Dynamic Analysis of Gene Expression and Genome-Wide Transcription Factor Binding during Lineage Specification of Multipotent Progenitors.” Cell Stem Cell 13, no. 6 (December 2013): 754–68. https://doi.org/10.1016/j.stem.2013.09.003.
+
+Simulation starting in MPC, after 60 timesteps injecting trigger for state N.
+
 % data
 gene	MPC	E	N
 E1A_r60_n11	0	0	1
@@ -16863,6 +16868,6 @@ MPC	N	C2
 
 % settings
 Set MPC
-Trigger 1 @ MPC 30
+Trigger 2 @ MPC 60
 Runtime 150
 

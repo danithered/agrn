@@ -14,6 +14,7 @@ namespace dv_expr{
 		if(input == "set") return(eActionSet);
 		if(input == "runtime") return(eActionRun);
 		if(input == "setdecay") return(eActionSetDecay);
+		if(input == "par") return(eActionPar);
 		if(input == "output") return(eActionOutput);
 		return(enone);
 	}
@@ -1040,6 +1041,15 @@ namespace dv_expr{
 						todo = (Action*) new ActionSetDecay( doublevec );
 					}
 					break;
+				case eActionPar:
+					{
+						if( no_args == 2){
+							todo = (Action*) new ActionPar( argoments[0], std::stof(argoments[1]) );
+						} else {
+							std::cerr << "WARNING: loadActions: incorrect number of argoments to " << action << ". Allowed number: 2. Ignoring line." << std::endl;
+						}
+					}
+					break;
 				case eActionRun:
 					if(no_args) todo = (Action*) new ActionRun( std::stof(argoments[0]) );
 					else todo = (Action*) new ActionRun();
@@ -1324,6 +1334,19 @@ namespace dv_expr{
 		M[row * size + col] = value;
 	}
 	
+	bool ExpressionModell::setPar(const std::string &id, double value){ 
+		std::string par_lower = id;
+		boost::algorithm::to_lower(par_lower); 
+
+		if(par_lower == "omega"){
+			slope_tanh = value;
+			return true;
+		}
+
+		std::cerr << "WARNING: setPar: parameter " << id << " not found. Possible values (with defaults) are: omega(50)." << std::endl;
+		return false;
+	}
+
 	void ExpressionModell::setState(const int id){ //inic current state to given pattern
 		const boost::dynamic_bitset<> *pattern = asState(id);
 		if(pattern != NULL){
