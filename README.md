@@ -82,7 +82,7 @@ The input files are made up from 3 different sections, in an abritrary order. Th
         - argument vector (number of elements is the sum of the unique, non-unique and signal elements): Different decay rates will be applied.
     - `Output`: Set the type of output. Default value: `Pearson` - it prints Pearson correlation coefficients (see: Figures in article). Alternative option: `state` - it prints the expression level of genes.
     - `Par`: Sets a parameter's value. First argument is the name of the variable, second is the value to be set. (e.g. `Par omega 100.5` sets the value of parameter `omega` to 100.5. The parameters which can be manipulated this way are:
-        - `omega`: the slope of transform function. Defaults to 50.
+        - `omega`: the slope of the transfer function. Defaults to 50.
     - Commands can be executed, if the system reaches a given stage, i.e., the Pearson correlation coefficient of the specified stage exceeds a threshold value for a predefined period of time. The structure of the timer is the following: `command [ARGS] @ stage [expression length] [treshold]`, where: 
         - `command`: The command to be timed. 
         - `ARGS`: The arguments of the command.
