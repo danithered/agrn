@@ -15,6 +15,7 @@ namespace dv_expr{
 		if(input == "runtime") return(eActionRun);
 		if(input == "setdecay") return(eActionSetDecay);
 		if(input == "par") return(eActionPar);
+		if(input == "printm") return(eActionPrint);
 		if(input == "output") return(eActionOutput);
 		return(enone);
 	}
@@ -1050,6 +1051,15 @@ namespace dv_expr{
 						}
 					}
 					break;
+				case eActionPrint:
+					{
+						if( no_args ){
+							std::cerr << "WARNING: loadActions: incorrect number of argoments to " << action << ". Allowed number: 0. Ignoring line." << std::endl;
+						} else {
+							todo = (Action*) new ActionPrint();
+						}
+					}
+					break;
 				case eActionRun:
 					if(no_args) todo = (Action*) new ActionRun( std::stof(argoments[0]) );
 					else todo = (Action*) new ActionRun();
@@ -1848,10 +1858,27 @@ namespace dv_expr{
 		}
 	}
 
-	void ExpressionModell::printM() const{
+	void ExpressionModell::printM() {
+		Ms.build();
 		if(M != NULL){
 			double *M_ptr = M;
+
+			// print colnames
+			for(auto &name : factor_names) std::cout << '\t' << name;
+			for(auto &name : gene_names) std::cout << '\t' << name;
+			for(auto &name : trigger_names) std::cout << '\t' << name;
+			std::cout << std::endl;
+
+			// print matrix values
+			auto rowname = factor_names.begin();
 			for(int row = size; row--; ){
+				// handling rownames
+				if(rowname == factor_names.end()) rowname = gene_names.begin();
+				if(rowname == gene_names.end()) rowname = trigger_names.begin();
+				std::cout << *rowname;
+				++rowname;
+
+				// printing row values
 				for(int col = size; col--;) {
 					std::cout << '\t' << (double) *(M_ptr);
 					M_ptr++;

@@ -117,7 +117,7 @@ namespace dv_expr {
 
 	class ExpressionModell;
 
-	enum action_types {enone, eActionChangeM, eActionSwitch, eActionSet, eActionRun, eActionSetDecay, eActionOutput, eActionPar};
+	enum action_types {enone, eActionChangeM, eActionSwitch, eActionSet, eActionRun, eActionSetDecay, eActionOutput, eActionPar, eActionPrint};
 	action_types action2enum(std::string input);
 
 	class Action{
@@ -528,7 +528,7 @@ namespace dv_expr {
 			double getPearson(const int pattern_id) ;
 			void printStateHeader() ;
 			void printStatePearsonHeader() ;
-			void printM() const;
+			void printM();
 			void printDeath() const;
 			void printTriggers() const;
 			void setSequence(const std::vector<int> &_seq); 
@@ -869,6 +869,24 @@ namespace dv_expr {
 		private:
 			const std::string target;  //which value will be altered in case of inner_triggering
 			const double value;   //the assigned value
+	};
+
+	class ActionPrint : public Action{
+		public: 
+			ActionPrint(){};
+			~ActionPrint(){
+//				std::cout << "ActionPrint destroyed" << std::endl;
+			};
+
+			virtual Action* Clone(){return new ActionPrint(*this); }
+			void apply(ExpressionModell* obj){
+//				std::cout << "Action: switch target " << target << " to value " << value << std::endl;
+				obj->printM();	
+			}
+			void print(){
+				std::cout << "ActionPrint" << std::endl;
+			}
+		private:
 	};
 
 	class ActionSetDecay : public Action{
