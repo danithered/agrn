@@ -1,6 +1,8 @@
+[![DOI](https://zenodo.org/badge/518172588.svg)](https://zenodo.org/doi/10.5281/zenodo.10556584)
+
 Repository for the software that implements the AGRN model described in
 
-# Neural network model of cell differentiation on Waddingtonian landscapes
+# A neural network-based model framework for cell-fate decisions and development
 
 Mátyás Paczkó<sup>1,2,* </sup>, Dániel Vörös<sup>1,2,* </sup>, Péter Szabó<sup>1</sup>, Gáspár Jékely<sup>3</sup>, Eörs Szathmáry<sup>1,4,5</sup>, András Szilágyi<sup>1</sup>
 
